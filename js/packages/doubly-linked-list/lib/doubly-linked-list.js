@@ -89,7 +89,13 @@ class DoublyLinkedList {
 
     // TODO: Write a function that returns the length of a list.
     length() {
-      throw new Error('Method not yet implemented')
+      let i = 0
+
+      for(let currentNode = this.head; currentNode; currentNode = currentNode.next) {
+        i++
+      }
+
+      return i
     }
 
     // TODO: Write a function that returns true if the list is equal to another.
@@ -99,7 +105,14 @@ class DoublyLinkedList {
 
     // TODO: Write a function that returns the value at the specified index..
     get(index) {
-      throw new Error('Method not yet implemented')
+      let i = 0
+
+      for(let currentNode = this.head; currentNode; currentNode = currentNode.next) {
+        if (i === index) {
+          return currentNode.value
+        }
+        i++
+      }
     }
 
 
