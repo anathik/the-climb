@@ -52,4 +52,24 @@ describe("DoublyLinkedList", () => {
 
     expect(doubleLinkedList.get(2)).toBe(3)
   });
+
+  test("should determine if two linked lists are equal", () => {
+    let truthyCaseList = new DoublyLinkedList();
+    let falsyCaseList = new DoublyLinkedList();
+
+    truthyCaseList.append(1);
+    truthyCaseList.append(2);
+    truthyCaseList.append(3);
+
+    falsyCaseList.append(1);
+    falsyCaseList.append(3);
+    falsyCaseList.append(5);
+
+    doubleLinkedList.append(1);
+    doubleLinkedList.append(2);
+    doubleLinkedList.append(3);
+
+    expect(doubleLinkedList.isEqualTo(truthyCaseList)).toBe(true)
+    expect(doubleLinkedList.isEqualTo(falsyCaseList)).toBe(false)
+  });
 });
