@@ -71,21 +71,57 @@ class DoublyLinkedList {
         return removedTail.value
       }
     }
-  
-    search(value) {
-      let currentNode = this.head
-  
-      while (currentNode) {
-        if (currentNode.value === value) {
-          return currentNode
-        }
-        currentNode = currentNode.next
-      }
-  
-      return null
+
+    // TODO: Write a function that deletes a node at a specified index.
+    removeAt(index) {
+      throw new Error('Method not yet implemented')
     }
 
-    print() {
+    // TODO: Write a function that inserts a node at a specified index.
+    insertAt({value, index}) {
+      throw new Error('Method not yet implemented')
+    }
+      
+    // TODO: Write a function that removes a value if present.
+    remove(value) {
+      throw new Error('Method not yet implemented')
+    }
+
+    // TODO: Write a function that returns the length of a list.
+    length() {
+      throw new Error('Method not yet implemented')
+    }
+
+    // TODO: Write a function that returns true if the list is equal to another.
+    isEqualTo(otherList) {
+      throw new Error('Method not yet implemented')
+    }
+
+    // TODO: Write a function that returns the value at the specified index..
+    get(index) {
+      throw new Error('Method not yet implemented')
+    }
+
+
+    indexOf(value) {
+      let i = 0
+
+      for(let currentNode = this.head; currentNode; currentNode = currentNode.next) {
+        if (currentNode.value === value) {
+          return i
+        }
+        i++
+      }
+      return -1
+    }
+  
+    contains(value) {
+      return this.indexOf(value) !== -1
+    }
+
+
+
+    toString() {
       let nodeValueArray = []
       for (let currentNode = this.head; currentNode; currentNode = currentNode.next) {
         nodeValueArray.push(currentNode.value)
@@ -102,7 +138,5 @@ class DoublyLinkedList {
       this.next = next || null
     }
   }
-  
-  let list = new DoublyLinkedList()
 
   module.exports = DoublyLinkedList;
