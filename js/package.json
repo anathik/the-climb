@@ -1,0 +1,11 @@
+{
+  "name": "the-climb",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.7.1",
+    "lerna": "^3.13.4"
+  }
+}
