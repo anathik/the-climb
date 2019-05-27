@@ -72,11 +72,6 @@ class DoublyLinkedList {
     }
   }
 
-  // TODO: Write a function that deletes a node at a specified index.
-  removeAt(index) {
-    throw new Error('Method not yet implemented')
-  }
-
   // TODO: Write a function that inserts a node at a specified index.
   insertAt({ value, index }) {
     throw new Error('Method not yet implemented')
