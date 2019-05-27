@@ -9,67 +9,105 @@ describe("DoublyLinkedList", () => {
     doubleLinkedList = new DoublyLinkedList();
   });
 
-  test("should be able to add stuff", () => {
-    doubleLinkedList.append(1);
-    doubleLinkedList.append(2);
-    doubleLinkedList.append(3);
+  describe("append", () => {
+    it("should add a node to the end of a list", () => {
+      doubleLinkedList.append(1);
+      doubleLinkedList.append(2);
+      doubleLinkedList.append(3);
 
-    expect(doubleLinkedList.toString()).toBe('[1, 2, 3]')
+      expect(doubleLinkedList.toString()).toBe('[1, 2, 3]')
+    });
   });
 
-  test("should return index of a value", () => {
-    doubleLinkedList.append(1);
-    doubleLinkedList.append(2);
-    doubleLinkedList.append(3);
+  describe("indexOf", () => {
+    it("should return index of a value", () => {
+      doubleLinkedList.append(1);
+      doubleLinkedList.append(2);
+      doubleLinkedList.append(3);
 
-    expect(doubleLinkedList.indexOf(1)).toBe(0)
-    expect(doubleLinkedList.indexOf(4)).toBe(-1)
+      expect(doubleLinkedList.indexOf(1)).toBe(0)
+      expect(doubleLinkedList.indexOf(4)).toBe(-1)
+    });
   });
 
-  test("should determine if a value is present", () => {
-    doubleLinkedList.append(1);
-    doubleLinkedList.append(2);
-    doubleLinkedList.append(3);
+  describe("contains", () => {
+    it("should return true if a value is present", () => {
+      doubleLinkedList.append(1);
+      doubleLinkedList.append(2);
+      doubleLinkedList.append(3);
 
-    expect(doubleLinkedList.contains(1)).toBe(true)
-    expect(doubleLinkedList.contains(4)).toBe(false)
+      expect(doubleLinkedList.contains(1)).toBe(true)
+      expect(doubleLinkedList.contains(4)).toBe(false)
+    });
   });
 
-  test("should determine the length of a list", () => {
-    expect(doubleLinkedList.length()).toBe(0)
+  describe("length", () => {
+    it("should return the length of a list", () => {
+      expect(doubleLinkedList.length()).toBe(0)
 
-    doubleLinkedList.append(1);
-    doubleLinkedList.append(2);
-    doubleLinkedList.append(3);
+      doubleLinkedList.append(1);
+      doubleLinkedList.append(2);
+      doubleLinkedList.append(3);
 
-    expect(doubleLinkedList.length()).toBe(3)
-  });
+      expect(doubleLinkedList.length()).toBe(3)
+    });
+  })
 
-  test("should return the value at an index", () => {
-    doubleLinkedList.append(1);
-    doubleLinkedList.append(2);
-    doubleLinkedList.append(3);
+  describe("indexOf", () => {
+    it("should return the value at an index", () => {
+      doubleLinkedList.append(1);
+      doubleLinkedList.append(2);
+      doubleLinkedList.append(3);
 
-    expect(doubleLinkedList.get(2)).toBe(3)
-  });
+      expect(doubleLinkedList.get(2)).toBe(3)
+    });
+  })
 
-  test("should determine if two linked lists are equal", () => {
-    let truthyCaseList = new DoublyLinkedList();
-    let falsyCaseList = new DoublyLinkedList();
+  describe("remove", () => {
+    it("should remove a node at the specified index and return resultant the list", () => {
+      doubleLinkedList.append(1);
 
-    truthyCaseList.append(1);
-    truthyCaseList.append(2);
-    truthyCaseList.append(3);
+      expect(doubleLinkedList.toString()).toBe('[1]')
 
-    falsyCaseList.append(1);
-    falsyCaseList.append(3);
-    falsyCaseList.append(5);
+      doubleLinkedList.append(2);
+      doubleLinkedList.append(3);
 
-    doubleLinkedList.append(1);
-    doubleLinkedList.append(2);
-    doubleLinkedList.append(3);
+      expect(doubleLinkedList.toString()).toBe('[1, 2, 3]')
 
-    expect(doubleLinkedList.isEqualTo(truthyCaseList)).toBe(true)
-    expect(doubleLinkedList.isEqualTo(falsyCaseList)).toBe(false)
-  });
+      doubleLinkedList.remove(1)
+
+      expect(doubleLinkedList.toString()).toBe('[1, 3]')
+
+      doubleLinkedList.remove(0)
+
+      expect(doubleLinkedList.toString()).toBe('[3]')
+    });
+  })
+
+  describe("isEqualTo", () => {
+    it("should return false if two different linked lists are not equal", () => {
+      let listA = new DoublyLinkedList();
+      let listB = new DoublyLinkedList();
+
+      listA.append(1);
+      listA.append(2);
+      listA.append(3);
+
+      listB.append(1);
+      listB.append(3);
+      listB.append(5);
+
+      expect(listA.isEqualTo(listB)).toBe(false)
+    });
+
+    it("should return true if two linked lists are equal", () => {
+      let listC = new DoublyLinkedList();
+      let listD = new DoublyLinkedList();
+
+      listC.append(1);
+      listD.append(1);
+
+      expect(listC.isEqualTo(listD)).toBe(true)
+    });
+  })
 });

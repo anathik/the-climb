@@ -4,6 +4,9 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "devDependencies": {
     "jest": "^24.7.1",
     "lerna": "^3.13.4"
